@@ -5,19 +5,35 @@
 
 using namespace std;
 
-CVector:: CVector(int size) {
+
+CVector:: CVector(){
+    this->Size = 0;
+    this->data = NULL;
+}
+
+CVector:: CVector(int size)
+{
+    this->Size = size;
+    this->data = new double [size];
+    for (int i = 0; i < size; ++i) {
+        data[i] = i + (double)rand()/((double)rand()-10);
+    }
+}
+
+CVector:: CVector(int size, const char* FileName) {
 
     this->Size = size;
     this->data = new double[size];
 
-    for (int i = 0; i < size; ++i) {
-        data[i] = i + (double)rand()/((double)rand()-10);
-
-    }
-
+    ifstream in;
+    in.open(FileName);
+    if (!in.is_open())
+        return;
+    for (int i = 0; i < size; ++i)
+        in >> this->data[i];
 }
 
-CVector:: CVector(const CVector &other) {
+CVector:: CVector(const CVector &other){
 
     this->Size = other.Size;
 
@@ -75,16 +91,16 @@ const double& CVector:: operator[](int index)const{
 }
 
 
-CVector CVector:: operator+(const CVector &other) {  // перегруженный оператор +
+CVector CVector::operator+(const CVector &other) {  // перегруженный оператор +
 
     if (this->Size != other.Size) {
         cout << "Размеры векторов различны, данная операция невозможна" << endl;
         assert(this->Size == other.Size);
     }
 
-    CVector temp(other.Size);
+    CVector temp (other.Size);
 
-    for (int i = 0; i < Size; ++i) {
+    for (int i = 0; i < this->Size; ++i) {
         temp.data[i] = this->data[i] + other.data[i];
     }
 
@@ -96,16 +112,16 @@ CVector& CVector:: operator+=(const CVector &other) {
     return *this;
 }
 
-CVector CVector:: operator-(const CVector &other) {  //перегруженный оператор -
+CVector CVector::operator-(const CVector &other) {  // перегруженный оператор -
+
     if (this->Size != other.Size) {
         cout << "Размеры векторов различны, данная операция невозможна" << endl;
         assert(this->Size == other.Size);
     }
 
-    CVector temp(other.Size);
+    CVector temp (other.Size);
 
-
-    for (int i = 0; i < Size; ++i) {
+    for (int i = 0; i < this->Size; ++i) {
         temp.data[i] = this->data[i] - other.data[i];
     }
 
@@ -136,6 +152,77 @@ CVector:: ~CVector() {
 
 }
 
+CVector0:: CVector0(){
+    this->Size = 0;
+    this->data = NULL;
+}
+
+CVector0:: CVector0(char *str){
+    this->Size = 0;
+    for (int i = 0; str[i] != 0; ++i)
+        if (str[i] == ' ')
+            Size++;
+    this->data = new double[this->Size];
+    int k = 0;
+    char *D = strtok(str, " ");
+    while (D != NULL)
+    {
+        this->data[k] = atof(D);
+        k++;
+        D = strtok(NULL, " ");
+    }
+}
+
+int CVector0::output(const char *FileName)
+{
+    ofstream out;
+    out.open(FileName, fstream::out|fstream::app);
+    if(!out.is_open())
+        return -1;
+    for(int i = 0; i < this->Size; ++i)
+    {
+        out << this->data[i] << ' ';
+    }
+    out << endl;
+    out.close();
+    return 0;
+}
+
+CVector1:: CVector1(){
+    this->Size = 0;
+    this->data = NULL;
+}
+
+CVector1:: CVector1(char *str){
+    this->Size = 0;
+    for (int i = 0; str[i] != 0; ++i)
+        if (str[i] == ' ')
+            Size++;
+    this->data = new double[this->Size];
+    int k = 0;
+    char *D = strtok(str, " ");
+    while (D != NULL)
+    {
+        this->data[k] = atof(D);
+        k++;
+        D = strtok(NULL, " ");
+    }
+}
+
+int CVector1::output(const char *FileName)
+{
+    ofstream out;
+    out.open(FileName, fstream::out|fstream::app);
+    if(!out.is_open())
+        return -1;
+    for(int i = 0; i < this->Size; ++i)
+    {
+        out << this->data[i] << '\n';
+    }
+    out << endl;
+    out.close();
+    return 0;
+}
 
 ostream &operator<<(ostream &out, const CVector &value) {
     for (int i = 0; i < value.Size; ++i) {

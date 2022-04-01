@@ -1,5 +1,6 @@
 #include "CVector.h"
 #include <iostream>
+#include <fstream>
 #include <cassert>
 #include <cstdlib>
 
@@ -7,7 +8,7 @@ using namespace std;
 
 int main() {
 
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "rus");
 
     CVector a(5);
     CVector c(4);
@@ -26,6 +27,25 @@ int main() {
     cout << "b - c =  "<<a;
     h = b * c;
     cout << "скалярное произвидение b и c:  "<< h << endl;
-
+    ifstream in;
+    in.open("input.txt");
+    if (!in.is_open())
+        return 1;
+    while (!in.eof())
+    {
+        CVector* A;
+        int I;
+        in >> I;
+        char File[255];
+        in >> File;
+        char Data[500];
+        in.getline(Data, 500);
+        if (I == 0)
+            A = new CVector0(Data);
+        else if (I == 1)
+            A = new CVector1(Data);
+        A->output(File);
+        delete A;
+    }
     return 0;
 }
