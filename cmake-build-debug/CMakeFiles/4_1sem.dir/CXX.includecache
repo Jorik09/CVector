@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/4.1/CVector/CVector.cpp
+CVector.h
+C:/4.1/CVector/CVector.h
+
+C:/4.1/CVector/CVector.h
+iostream
+-
+fstream
+-
+cassert
+-
+cstdlib
+-
+cstring
+-
+
+C:/4.1/CVector/main.cpp
+CVector.h
+C:/4.1/CVector/CVector.h
+iostream
+-
+fstream
+-
+cassert
+-
+cstdlib
+-
+
