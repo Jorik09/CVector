@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/4.1/CVector/CVector.cpp
-CVector.h
-C:/4.1/CVector/CVector.h
-
 C:/4.1/CVector/CVector.h
 iostream
 -
@@ -22,9 +18,21 @@ cstdlib
 cstring
 -
 
+C:/4.1/CVector/CVector0.h
+CVector.h
+C:/4.1/CVector/CVector.h
+
+C:/4.1/CVector/CVector1.h
+CVector.h
+C:/4.1/CVector/CVector.h
+
 C:/4.1/CVector/main.cpp
 CVector.h
 C:/4.1/CVector/CVector.h
+CVector0.h
+C:/4.1/CVector/CVector0.h
+CVector1.h
+C:/4.1/CVector/CVector1.h
 iostream
 -
 fstream

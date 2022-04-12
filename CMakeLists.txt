@@ -3,4 +3,4 @@ project(4_1sem)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(4_1sem main.cpp CVector.cpp CVector.h)
+add_executable(4_1sem main.cpp CVector.cpp CVector.h Cvector0.h Cvector1.h)

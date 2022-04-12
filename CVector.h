@@ -47,23 +47,8 @@ public:
 };
 
 
-class CVector0: public CVector{
-public:
-    CVector0();
 
-    CVector0(char* str);
 
-    int output(const char *FileName = NULL);
-};
-
-class CVector1: public CVector{
-public:
-    CVector1();
-
-    CVector1(char* str);
-
-    int output(const char *FileName = NULL);
-};
 
 ostream &operator<<(ostream &out, const CVector &value);
 #endif //INC_4_1SEM_CVECTOR_H

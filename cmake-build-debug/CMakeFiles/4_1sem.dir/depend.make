@@ -3,7 +3,11 @@
 
 CMakeFiles/4_1sem.dir/CVector.cpp.obj: ../CVector.cpp
 CMakeFiles/4_1sem.dir/CVector.cpp.obj: ../CVector.h
+CMakeFiles/4_1sem.dir/CVector.cpp.obj: ../CVector0.h
+CMakeFiles/4_1sem.dir/CVector.cpp.obj: ../CVector1.h
 
 CMakeFiles/4_1sem.dir/main.cpp.obj: ../CVector.h
+CMakeFiles/4_1sem.dir/main.cpp.obj: ../CVector0.h
+CMakeFiles/4_1sem.dir/main.cpp.obj: ../CVector1.h
 CMakeFiles/4_1sem.dir/main.cpp.obj: ../main.cpp
 

@@ -86,6 +86,12 @@
 		<Unit filename="C:/4.1/CVector/CVector.h">
 			<Option target="4_1sem"/>
 		</Unit>
+		<Unit filename="C:/4.1/CVector/Cvector0.h">
+			<Option target="4_1sem"/>
+		</Unit>
+		<Unit filename="C:/4.1/CVector/Cvector1.h">
+			<Option target="4_1sem"/>
+		</Unit>
 		<Unit filename="C:/4.1/CVector/main.cpp">
 			<Option target="4_1sem"/>
 		</Unit>
