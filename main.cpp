@@ -13,11 +13,29 @@ int main() {
 
     setlocale(LC_ALL, "rus");
 
-    CVector a(5);
-    CVector c(4);
-    CVector b(4);
+    CVector0 a(2);
+    CVector0 b(2);
+    CVector0 s(2);
+    CVector0 d(2);
     double h;
-    CVector s(4);
+    a[0]= 1.1; a[1]= 2.2;
+    b[0]= 1.0; b[1]= 1.0;
+    cout << "a: "<<a;
+    cout << "b: "<<b;
+    s = a + b;
+    if ((s[0]==2.1)&&(s[1]==3.2))
+    cout << "AT1 success"<< endl;
+    s = a - b;
+    cout << "s "<<s;
+    if ((s[0]==0.1)&&(s[1]==1.2))
+    cout << "AT2 success"<< endl;
+
+
+    /*CVector0 a(5);
+    CVector0 c(4);
+    CVector0 b(4);
+    double h;
+    CVector0 s(4);
 
     b[3] = 1.9;
     cout << "a: "<<a;
@@ -29,7 +47,7 @@ int main() {
     a = b - c;
     cout << "b - c =  "<<a;
     h = b * c;
-    cout << "скалярное произвидение b и c:  "<< h << endl;
+    cout << "скалярное произвидение b и c:  "<< h << endl;*/
     ifstream in;
     in.open("input.txt");
     if (!in.is_open())

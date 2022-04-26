@@ -1,5 +1,3 @@
-
-
 #include "CVector.h"
 #include "CVector0.h"
 #include "CVector1.h"
@@ -17,7 +15,7 @@ CVector:: CVector(int size)
     this->Size = size;
     this->data = new double [size];
     for (int i = 0; i < size; ++i) {
-        data[i] = i + (double)rand()/((double)rand()-10);
+        data[i] = 0;
     }
 }
 
@@ -92,17 +90,17 @@ const double& CVector:: operator[](int index)const{
 }
 
 
-CVector CVector::operator+(const CVector &other) {  // перегруженный оператор +
+CVector0 operator+(const CVector &first, const CVector &second) {  // перегруженный оператор +
 
-    if (this->Size != other.Size) {
+    if (first.size() != second.size()) {
         cout << "Размеры векторов различны, данная операция невозможна" << endl;
-        assert(this->Size == other.Size);
+        //assert(this->Size == other.Size);
     }
 
-    CVector temp (other.Size);
+    CVector0 temp (first.size());
 
-    for (int i = 0; i < this->Size; ++i) {
-        temp.data[i] = this->data[i] + other.data[i];
+    for (int i = 0; i < first.size(); ++i) {
+        temp.data[i] = first.data[i] + second.data[i];
     }
 
     return temp;
@@ -113,17 +111,17 @@ CVector& CVector:: operator+=(const CVector &other) {
     return *this;
 }
 
-CVector CVector::operator-(const CVector &other) {  // перегруженный оператор -
+CVector0 operator-(const CVector &first, const CVector &second) {  // перегруженный оператор +
 
-    if (this->Size != other.Size) {
+    if (first.size() != second.size()) {
         cout << "Размеры векторов различны, данная операция невозможна" << endl;
-        assert(this->Size == other.Size);
+        //assert(this->Size == other.Size);
     }
 
-    CVector temp (other.Size);
+    CVector0 temp (first.size());
 
-    for (int i = 0; i < this->Size; ++i) {
-        temp.data[i] = this->data[i] - other.data[i];
+    for (int i = 0; i < first.size(); ++i) {
+        temp.data[i] = first.data[i] - second.data[i];
     }
 
     return temp;
@@ -134,7 +132,7 @@ CVector& CVector:: operator-=(const CVector &other) {
     return *this;
 }
 
-double CVector:: operator*(const CVector &other) {  //перегруженный оператор скалярное произведение
+/*double CVector:: operator*(const CVector0 &other) {  //перегруженный оператор скалярное произведение
     if (this->Size != other.Size) {
         cout << "Размеры векторов различны, данная операция невозможна" << endl;
         assert(this->Size == other.Size);
@@ -146,7 +144,22 @@ double CVector:: operator*(const CVector &other) {  //перегруженный
     }
 
     return S;
-}
+}*/
+
+/*double CVector0:: operator * (const CVector &first, const CVector &second) {  // перегруженный оператор +
+
+    if (first.size() != second.size()) {
+        cout << "Размеры векторов различны, данная операция невозможна" << endl;
+        //assert(this->Size == other.Size);
+    }
+    double S = 0;
+
+    for (int i = 0; i < first.size(); ++i) {
+        S += first.data[i] * second.data[i];
+    }
+
+    return S;
+}*/
 
 CVector:: ~CVector() {
     delete[] data;
@@ -188,6 +201,10 @@ int CVector0::output(const char *FileName)
     out.close();
     return 0;
 }
+
+/*CVector0 CVector0::operator+(const CVector &first, const CVector &second) {
+    return CVector0();
+}*/
 
 CVector1:: CVector1(){
     this->Size = 0;

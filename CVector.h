@@ -1,4 +1,3 @@
-
 #ifndef INC_4_1SEM_CVECTOR_H
 #define INC_4_1SEM_CVECTOR_H
 
@@ -13,7 +12,7 @@ using namespace std;
 class CVector {
 protected:
     int Size;
-    double *data;
+
 public:
     CVector();
 
@@ -26,20 +25,23 @@ public:
     CVector &operator=(const CVector &other);
 
     double & operator[](int index);
+    double *data;
+    int size() const {
+        return Size;
+    }
 
     const double & operator[](int index)const;
-
-    CVector operator+(const CVector &other);
+    //CVector0 operator+(const CVector&, const CVector&);
 
     CVector &operator+=(const CVector &other);
 
-    CVector operator-(const CVector &other);
+    //CVector operator-(const CVector &other);
 
     CVector &operator-=(const CVector &other);
 
-    double operator*(const CVector &other);
+    //double operator*(const CVector &other);
 
-    virtual int output(const char *FileName = NULL){return 0;};
+    virtual int output(const char *FileName = NULL)=0;
 
     ~CVector();
 
