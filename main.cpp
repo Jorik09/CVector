@@ -14,7 +14,7 @@ int main() {
     setlocale(LC_ALL, "rus");
 
     CVector0 a(2);
-    CVector0 b(2);
+    CVector1 b(2);
     CVector0 s(2);
     CVector0 d(2);
     double h;

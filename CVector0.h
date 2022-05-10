@@ -9,6 +9,8 @@ public:
     CVector0(int size) : CVector(size){};
 
     CVector0(char* str);
+
+
     using CVector::operator=;
 
 
